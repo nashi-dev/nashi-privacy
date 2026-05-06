@@ -74,7 +74,7 @@
 
     <p>
       Contact:
-      <a class="support-email"></a>
+      <a href="mailto:nashi.diaspora.app@gmail.com">nashi.diaspora.app@gmail.com</a>
     </p>
 
     <h2>2. What Data We Collect</h2>
@@ -124,7 +124,7 @@
 
     <p>
       Or send a request to:
-      <a class="support-email"></a>
+      <a href="mailto:nashi.diaspora.app@gmail.com">nashi.diaspora.app@gmail.com</a>
     </p>
 
     <p>
@@ -142,7 +142,7 @@
 
     <p>
       Email:
-      <a class="support-email"></a>
+      <a href="mailto:nashi.diaspora.app@gmail.com">nashi.diaspora.app@gmail.com</a>
     </p>
   </div>
 
@@ -160,7 +160,7 @@
 
     <p>
       Контакт:
-      <a class="support-email"></a>
+      <a href="mailto:nashi.diaspora.app@gmail.com">nashi.diaspora.app@gmail.com</a>
     </p>
 
     <h2>2. Які дані ми збираємо</h2>
@@ -210,7 +210,7 @@
 
     <p>
       Або надішліть запит на:
-      <a class="support-email"></a>
+      <a href="mailto:nashi.diaspora.app@gmail.com">nashi.diaspora.app@gmail.com</a>
     </p>
 
     <p>
@@ -228,33 +228,26 @@
 
     <p>
       Email:
-      <a class="support-email"></a>
+      <a href="mailto:nashi.diaspora.app@gmail.com">nashi.diaspora.app@gmail.com</a>
     </p>
   </div>
 
   <script>
-    const SUPPORT_EMAIL = "nashi.diaspora.app@gmail.com";
-÷
-    function setupEmails() {
-      document.querySelectorAll(".support-email").forEach((el) => {
-        el.href = "mailto:" + SUPPORT_EMAIL;
-        el.textContent = SUPPORT_EMAIL;
-      });
-    }
-
     function switchLang(lang) {
-      document.querySelectorAll(".lang").forEach((el) => {
-        el.classList.remove("active");
+      document.querySelectorAll('.lang').forEach(el => {
+        el.classList.remove('active');
       });
 
-      const selectedLang = document.getElementById(lang);
-  
-      if (selectedLang) {
-        selectedLang.classList.add("active");
-        document.documentElement.lang = lang;
-      }
+      document.getElementById(lang).classList.add('active');
+
+      document.documentElement.lang = lang;
+      localStorage.setItem('selectedLanguage', lang);
     }
-    setupEmails();
+
+    window.onload = () => {
+      const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+      switchLang(savedLang);
+    };
   </script>
 
 </body>
