@@ -235,7 +235,7 @@
   <script>
     const SUPPORT_EMAIL = "nashi.diaspora.app@gmail.com";
 ÷
-    function switchLang(lang) {
+function switchLang(lang) {
       document.querySelectorAll('.lang').forEach(el => {
         el.classList.remove('active');
       });
@@ -246,14 +246,18 @@
       localStorage.setItem('selectedLanguage', lang);
     }
 
+    function setupEmails() {
+      document.querySelectorAll('.support-email').forEach(el => {
+        el.href = `mailto:${SUPPORT_EMAIL}`;
+        el.textContent = SUPPORT_EMAIL;
+      });
+    }
+
     window.onload = () => {
+      setupEmails();
+
       const savedLang = localStorage.getItem('selectedLanguage') || 'en';
       switchLang(savedLang);
-
-    document.querySelectorAll('.support-email').forEach(el => {
-      el.href = `mailto:${SUPPORT_EMAIL}`;
-      el.textContent = SUPPORT_EMAIL;
-    });
     };
   </script>
 
