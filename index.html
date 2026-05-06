@@ -235,30 +235,26 @@
   <script>
     const SUPPORT_EMAIL = "nashi.diaspora.app@gmail.com";
 ÷
-    function switchLang(lang) {
-      document.querySelectorAll('.lang').forEach(el => {
-        el.classList.remove('active');
-      });
-
-      document.getElementById(lang).classList.add('active');
-
-      document.documentElement.lang = lang;
-      localStorage.setItem('selectedLanguage', lang);
-    }
-
     function setupEmails() {
-      document.querySelectorAll('.support-email').forEach(el => {
-        el.href = `mailto:${SUPPORT_EMAIL}`;
+      document.querySelectorAll(".support-email").forEach((el) => {
+        el.href = "mailto:" + SUPPORT_EMAIL;
         el.textContent = SUPPORT_EMAIL;
       });
     }
 
-    window.onload = () => {
-      setupEmails();
+    function switchLang(lang) {
+      document.querySelectorAll(".lang").forEach((el) => {
+        el.classList.remove("active");
+      });
 
-      const savedLang = localStorage.getItem('selectedLanguage') || 'en';
-      switchLang(savedLang);
-    };
+      const selectedLang = document.getElementById(lang);
+  
+      if (selectedLang) {
+        selectedLang.classList.add("active");
+        document.documentElement.lang = lang;
+      }
+    }
+    setupEmails();
   </script>
 
 </body>
